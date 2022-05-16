@@ -2,6 +2,8 @@
 
 This project is being prepared for finding, examining and booking hair transplant, dental and aesthetic clinics around the world.
 
+![Basic Clinic App Demo](src/Assets/demo/demo.gif)
+
 ## Installation
 
 - `IOS`
