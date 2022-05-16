@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.pureWhite,
     marginTop: Metrics.baseMargin,
     borderRadius: 10,
-    width: Metrics.screenWidth* 0.9,
+    width: Metrics.screenWidth * 0.9,
     marginRight: Metrics.baseMargin,
     maxheight: '30%'
   },
@@ -56,6 +56,10 @@ const styles = StyleSheet.create({
   },
   favoriteIcon: {
     fontSize: 15
+  },
+  selectFavoriteIcon: {
+    fontSize: 15,
+    color: Colors.red
   },
   descriptionContainer: {
     width: '100%',

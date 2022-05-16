@@ -2,7 +2,21 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import styles from './style';
 import Octicons from 'react-native-vector-icons/Octicons';
-const ClinicListItem = ({ item,navigate }) => {
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavorite, removeFavorite } from '../../../Redux/favorite/favoriteSlice';
+
+const ClinicListItem = ({ item, navigate }) => {
+  const { id, clinicMainImage, name, location, star, reviewCount } = item;
+  const dispatch = useDispatch();
+  const favorite = useSelector(state => state.favorite);
+  const defaultFavorite = favorite.filter(x => x.id === id);
+  const changeFavorite = id => {
+    if (defaultFavorite.length > 0) {
+      dispatch(removeFavorite(id));
+    } else {
+      dispatch(addFavorite(id));
+    }
+  };
   return (
     <TouchableOpacity
       style={styles.clinicContainer}
@@ -14,23 +28,27 @@ const ClinicListItem = ({ item,navigate }) => {
           <Image
             style={styles.clinicImage}
             source={{
-              uri: item?.clinicMainImage
+              uri: clinicMainImage
             }}
           />
           <View style={styles.favoriteIconContainer}>
-            <View style={styles.favoriteIconWrapper}>
-              <Octicons name='heart' style={styles.favoriteIcon} />
-            </View>
+            <TouchableOpacity onPress={() => changeFavorite(id)} style={styles.favoriteIconWrapper}>
+              {defaultFavorite.length > 0 ? (
+                <Octicons name='heart-fill' style={styles.selectFavoriteIcon} />
+              ) : (
+                <Octicons name='heart' style={styles.favoriteIcon} />
+              )}
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.descriptionContainer}>
-          <Text style={styles.clinicName}>{item?.name}</Text>
-          <Text style={styles.clinicLocation}>{item?.location}</Text>
+          <Text style={styles.clinicName}>{name}</Text>
+          <Text style={styles.clinicLocation}>{location}</Text>
         </View>
         <View style={styles.clinicReviewContainer}>
           <Octicons name='star-fill' style={styles.clinicReviewIcon} />
-          <Text style={styles.clinicReviewText}>{item?.star}</Text>
-          <Text style={styles.clinicReviewText}>({item?.reviewCount} Reviews)</Text>
+          <Text style={styles.clinicReviewText}>{star}</Text>
+          <Text style={styles.clinicReviewText}>({reviewCount} Reviews)</Text>
         </View>
       </View>
     </TouchableOpacity>

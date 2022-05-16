@@ -81,9 +81,12 @@ const styles = StyleSheet.create({
     fontSize: Fonts.size.small,
     color: Colors.grey.grey60
   },
-
   favoriteIcon: {
     fontSize: 20
+  },
+  selectFavoriteIcon: {
+    fontSize: 20,
+    color: Colors.red
   }
 });
 export default styles;
