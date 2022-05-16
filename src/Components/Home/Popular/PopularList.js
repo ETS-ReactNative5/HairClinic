@@ -16,7 +16,7 @@ const PopularList = ({ navigate }) => {
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={styles.popularListItemContainer}>
             {popularHospital.map((item, index) => {
-              return <PopularListItem navigate={navigate} item={item} />;
+              return <PopularListItem key={`${index}-popular-list`} navigate={navigate} item={item} />;
             })}
           </View>
         </ScrollView>
