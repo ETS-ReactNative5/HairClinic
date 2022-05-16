@@ -7,7 +7,7 @@ const PopularListItem = ({ item, navigate }) => {
     <TouchableOpacity
       style={styles.clinicContainer}
       onPress={() => navigate('ClinicDetail', { data: item })}
-      activeOpacity={0.2}
+      activeOpacity={0.9}
     >
       <View style={styles.clinicWrapper}>
         <View style={styles.clinicImageContainer}>

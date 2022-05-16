@@ -4,6 +4,7 @@ import styles from './style';
 import Octicons from 'react-native-vector-icons/Octicons';
 import ClinicDesc from './clinicDesc';
 const ClinicInformation = ({ data }) => {
+
   return (
     <View style={styles.clinicInfoContainer}>
       <View style={styles.clinicFavNameContainer}>
@@ -15,7 +16,7 @@ const ClinicInformation = ({ data }) => {
           <Octicons name='heart' style={styles.favoriteIcon} />
         </View>
       </View>
-      <ClinicDesc />
+      <ClinicDesc data={data} />
     </View>
   );
 };

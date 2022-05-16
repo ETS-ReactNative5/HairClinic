@@ -10,7 +10,7 @@ const Home = ({ navigation }) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header />
         <PopularList navigate={navigate} />
-        <ClinicList />
+        <ClinicList navigate={navigate} />
       </ScrollView>
     </SafeAreaView>
   );

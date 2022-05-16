@@ -5,7 +5,8 @@ import About from './about';
 import Doctor from './doctor';
 import Reviews from './reviews';
 
-const ClinicDesc = () => {
+const ClinicDesc = ({ data }) => {
+  const { about, doctor,review } = data?.info;
   const cat = [
     { id: 1, name: 'About' },
     { id: 2, name: 'Doctors' },
@@ -16,6 +17,7 @@ const ClinicDesc = () => {
   };
 
   const [selectCat, setSelectCat] = useState(1);
+  if (!data) return null;
   return (
     <View style={styles.container}>
       <View style={styles.headerWrapper}>
@@ -30,9 +32,9 @@ const ClinicDesc = () => {
         })}
       </View>
       <View>
-        {selectCat === 1 && <About />}
-        {selectCat === 2 && <Doctor />}
-        {selectCat === 3 && <Reviews />}
+        {selectCat === 1 && <About data={about} />}
+        {selectCat === 2 && <Doctor data={doctor} />}
+        {selectCat === 3 && <Reviews data={review} />}
       </View>
     </View>
   );

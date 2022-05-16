@@ -23,11 +23,11 @@ const screenOptions = (focused, route, color) => {
       title = 'HomeContainerScreen';
       break;
     case 'Appointment':
-      iconName = 'Appointment';
+      iconName = 'home';
       title = 'Appointment';
       break;
     case 'Search':
-      iconName = 'Search';
+      iconName = 'home';
       title = 'Search';
       break;
     case 'Profile':

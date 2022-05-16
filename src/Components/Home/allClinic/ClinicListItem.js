@@ -1,10 +1,14 @@
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import styles from './style';
 import Octicons from 'react-native-vector-icons/Octicons';
-const ClinicListItem = ({ item }) => {
+const ClinicListItem = ({ item,navigate }) => {
   return (
-    <View style={styles.clinicContainer}>
+    <TouchableOpacity
+      style={styles.clinicContainer}
+      onPress={() => navigate('ClinicDetail', { data: item })}
+      activeOpacity={0.9}
+    >
       <View style={styles.clinicWrapper}>
         <View style={styles.clinicImageContainer}>
           <Image
@@ -29,7 +33,7 @@ const ClinicListItem = ({ item }) => {
           <Text style={styles.clinicReviewText}>({item?.reviewCount} Reviews)</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

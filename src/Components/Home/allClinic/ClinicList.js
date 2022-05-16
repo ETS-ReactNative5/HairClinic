@@ -2,9 +2,9 @@ import { View, Text, FlatList, ScrollView } from 'react-native';
 import React from 'react';
 import styles from './style';
 import { popularHospital } from '../../../Assets/fakeDb/popularHospital';
-import PopularListItem from './ClinicListItem';
+import ClinicListItem from './ClinicListItem';
 
-const ClinicList = () => {
+const ClinicList = ({navigate}) => {
   return (
     <View style={styles.popularListContainer}>
       <View style={styles.popularListHeaderWrapper}>
@@ -13,7 +13,7 @@ const ClinicList = () => {
       </View>
       <View>
         {popularHospital.map((item, index) => {
-          return <PopularListItem item={item} />;
+          return <ClinicListItem navigate={navigate} key={`${index}-clinic-list`} item={item} />;
         })}
       </View>
     </View>

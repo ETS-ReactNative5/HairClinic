@@ -5,13 +5,19 @@ import { SliderBox } from 'react-native-image-slider-box';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import ClinicInformation from './clinicInformation';
-const ImageCarousel = ({ data }) => {
+const ImageCarousel = ({ data, navigation }) => {
   const scrollY = React.useRef(new Animated.Value(0)).current;
   return (
     <View style={styles.carouselContainer}>
       <StatusBar hidden />
       <View style={styles.headerIconWrapper}>
-        <Ionicons style={styles.headerIcon} name='ios-chevron-back-outline' />
+        <Ionicons
+          onPress={() => {
+            navigation.goBack();
+          }}
+          style={styles.headerIcon}
+          name='ios-chevron-back-outline'
+        />
       </View>
       <View style={styles.imageContainer}>
         <Animated.FlatList

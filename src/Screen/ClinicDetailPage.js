@@ -5,7 +5,7 @@ import { popularHospital } from '../Assets/fakeDb/popularHospital';
 
 const ClinicDetailPage = ({ navigation, route }) => {
   const { data } = route.params;
-  return <ImageCarousel data={data} />;
+  return <ImageCarousel navigation={navigation} data={data} />;
 };
 
 export default ClinicDetailPage;
